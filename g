@@ -1,5 +1,3 @@
-echo "Script by facebook.com/trumflorentinovucony | vunguyen.dev"
-echo "Đang nhận diện distro linux.."
 dist=$(hostnamectl | egrep "Operating System" | cut -f2 -d":" | cut -f2 -d " ")
 if [ $dist = "CentOS" ] ; then
 	echo "Bạn đang sử dụng CentOS."
