@@ -1,5 +1,4 @@
 clear
-echo "Script by facebook.com/trumflorentinovucony"
 echo "Stoping server.."
 sudo docker kill v2ray
 echo "Đang nhận diện distro linux"
