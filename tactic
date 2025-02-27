@@ -1,113 +1,113 @@
 param
 (
 
-    [Parameter(HelpMessage = "Change recommended version of Spotify.")]
+    [Parameter(HelpMessage = "Thay đổi phiên bản Spotify được khuyến nghị.")]
     [Alias("v")]
     [string]$version,
 
-    [Parameter(HelpMessage = "Use github.io mirror instead of raw.githubusercontent.")]
+    [Parameter(HelpMessage = "Sử dụng mirror github.io thay vì raw.githubusercontent.")]
     [Alias("m")]
     [switch]$mirror,
 
-    [Parameter(HelpMessage = "Developer mode activation.")]
+    [Parameter(HelpMessage = "Kích hoạt chế độ nhà phát triển.")]
     [Alias("dev")]
     [switch]$devtools,
 
-    [Parameter(HelpMessage = 'Hiding podcasts/episodes/audiobooks from homepage.')]
+    [Parameter(HelpMessage = "Ẩn podcast/tập/audiobook khỏi trang chủ.")]
     [switch]$podcasts_off,
 
-    [Parameter(HelpMessage = 'Hiding Ad-like sections from the homepage')]
+    [Parameter(HelpMessage = "Ẩn các mục giống quảng cáo trên trang chủ.")]
     [switch]$adsections_off,
     
-    [Parameter(HelpMessage = 'Do not hiding podcasts/episodes/audiobooks from homepage.')]
+    [Parameter(HelpMessage = "Không ẩn podcast/tập/audiobook khỏi trang chủ.")]
     [switch]$podcasts_on,
     
-    [Parameter(HelpMessage = 'Block Spotify automatic updates.')]
+    [Parameter(HelpMessage = "Chặn cập nhật tự động của Spotify.")]
     [switch]$block_update_on,
     
-    [Parameter(HelpMessage = 'Do not block Spotify automatic updates.')]
+    [Parameter(HelpMessage = "Không chặn cập nhật tự động của Spotify.")]
     [switch]$block_update_off,
     
-    [Parameter(HelpMessage = 'Change limit for clearing audio cache.')]
+    [Parameter(HelpMessage = "Thay đổi giới hạn xóa bộ nhớ cache âm thanh.")]
     [Alias('cl')]
     [int]$cache_limit,
     
-    [Parameter(HelpMessage = 'Automatic uninstallation of Spotify MS if it was found.')]
+    [Parameter(HelpMessage = "Tự động gỡ cài đặt Spotify MS nếu tìm thấy.")]
     [switch]$confirm_uninstall_ms_spoti,
     
-    [Parameter(HelpMessage = 'Overwrite outdated or unsupported version of Spotify with the recommended version.')]
+    [Parameter(HelpMessage = "Ghi đè phiên bản Spotify đã lỗi thời hoặc không được hỗ trợ bằng phiên bản được khuyến nghị.")]
     [Alias('sp-over')]
     [switch]$confirm_spoti_recomended_over,
     
-    [Parameter(HelpMessage = 'Uninstall outdated or unsupported version of Spotify and install the recommended version.')]
+    [Parameter(HelpMessage = "Gỡ cài đặt phiên bản Spotify đã lỗi thời hoặc không được hỗ trợ và cài đặt phiên bản được khuyến nghị.")]
     [Alias('sp-uninstall')]
     [switch]$confirm_spoti_recomended_uninstall,
     
-    [Parameter(HelpMessage = 'Installation without ad blocking for premium accounts.')]
+    [Parameter(HelpMessage = "Cài đặt mà không chặn quảng cáo cho tài khoản Premium.")]
     [switch]$premium,
 
-    [Parameter(HelpMessage = 'Disable Spotify autostart on Windows boot.')]
+    [Parameter(HelpMessage = "Tắt tự khởi động Spotify khi bật Windows.")]
     [switch]$DisableStartup,
     
-    [Parameter(HelpMessage = 'Automatic launch of Spotify after installation is complete.')]
+    [Parameter(HelpMessage = "Tự động mở Spotify sau khi cài đặt hoàn tất.")]
     [switch]$start_spoti,
     
-    [Parameter(HelpMessage = 'Experimental features operated by Spotify.')]
+    [Parameter(HelpMessage = "Bật các tính năng thử nghiệm của Spotify.")]
     [switch]$exp_spotify,
 
-    [Parameter(HelpMessage = 'Enable top search bar.')]
+    [Parameter(HelpMessage = "Bật thanh tìm kiếm phía trên.")]
     [switch]$topsearchbar,
 
-    [Parameter(HelpMessage = 'disable subfeed filter chips on home.')]
+    [Parameter(HelpMessage = "Tắt bộ lọc subfeed trên trang chủ.")]
     [switch]$homesub_off,
     
-    [Parameter(HelpMessage = 'Do not hide the icon of collaborations in playlists.')]
+    [Parameter(HelpMessage = "Không ẩn biểu tượng cộng tác trong danh sách phát.")]
     [switch]$hide_col_icon_off,
     
-    [Parameter(HelpMessage = 'Disable new right sidebar.')]
+    [Parameter(HelpMessage = "Tắt thanh bên phải mới.")]
     [switch]$rightsidebar_off,
 
-    [Parameter(HelpMessage = 'it`s killing the heart icon, you`re able to save and choose the destination for any song, playlist, or podcast')]
+    [Parameter(HelpMessage = "Xóa biểu tượng trái tim, cho phép lưu và chọn nơi lưu bài hát, danh sách phát hoặc podcast.")]
     [switch]$plus,
 
-    [Parameter(HelpMessage = 'Enabled the big cards for home page')]
+    [Parameter(HelpMessage = "Bật thẻ lớn trên trang chủ.")]
     [switch]$canvasHome,
 
-    [Parameter(HelpMessage = 'Enable funny progress bar.')]
+    [Parameter(HelpMessage = "Bật thanh tiến trình vui nhộn.")]
     [switch]$funnyprogressBar,
 
-    [Parameter(HelpMessage = 'New theme activated (new right and left sidebar, some cover change)')]
+    [Parameter(HelpMessage = "Bật giao diện mới (thanh bên trái và phải mới, thay đổi một số ảnh bìa).")]
     [switch]$new_theme,
 
-    [Parameter(HelpMessage = 'Enable right sidebar coloring to match cover color)')]
+    [Parameter(HelpMessage = "Bật tô màu thanh bên phải theo màu bìa.")]
     [switch]$rightsidebarcolor,
     
-    [Parameter(HelpMessage = 'Returns old lyrics')]
+    [Parameter(HelpMessage = "Quay lại lời bài hát cũ.")]
     [switch]$old_lyrics,
 
-    [Parameter(HelpMessage = 'Disable native lyrics')]
+    [Parameter(HelpMessage = "Tắt lời bài hát gốc của Spotify.")]
     [switch]$lyrics_block,
 
-    [Parameter(HelpMessage = 'Do not create desktop shortcut.')]
+    [Parameter(HelpMessage = "Không tạo lối tắt trên màn hình.")]
     [switch]$no_shortcut,
 
-    [Parameter(HelpMessage = 'Static color for lyrics.')]
+    [Parameter(HelpMessage = "Chọn màu tĩnh cho lời bài hát.")]
     [ArgumentCompleter({ param($cmd, $param, $wordToComplete)
             [array] $validValues = @('blue', 'blueberry', 'discord', 'drot', 'default', 'forest', 'fresh', 'github', 'lavender', 'orange', 'postlight', 'pumpkin', 'purple', 'radium', 'relish', 'red', 'sandbar', 'spotify', 'spotify#2', 'strawberry', 'turquoise', 'yellow', 'zing', 'pinkle', 'krux', 'royal', 'oceano')
             $validValues -like "*$wordToComplete*"
         })]
     [string]$lyrics_stat,
 
-    [Parameter(HelpMessage = 'Accumulation of track listening history with Goofy.')]
+    [Parameter(HelpMessage = "Lưu lịch sử nghe nhạc bằng Goofy.")]
     [string]$urlform_goofy = $null,
 
-    [Parameter(HelpMessage = 'Accumulation of track listening history with Goofy.')]
+    [Parameter(HelpMessage = "Lưu lịch sử nghe nhạc bằng Goofy.")]
     [string]$idbox_goofy = $null,
 
-    [Parameter(HelpMessage = 'Error log ru string.')]
+    [Parameter(HelpMessage = "Lưu nhật ký lỗi bằng tiếng Nga.")]
     [switch]$err_ru,
     
-    [Parameter(HelpMessage = 'Select the desired language to use for installation. Default is the detected system language.')]
+    [Parameter(HelpMessage = "Chọn ngôn ngữ sử dụng khi cài đặt. Mặc định là ngôn ngữ hệ thống được phát hiện.")]
     [Alias('l')]
     [string]$language
 )
