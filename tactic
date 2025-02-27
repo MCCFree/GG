@@ -184,7 +184,7 @@ function Get-Link {
     }
 }
 
-function Get-Link {
+function Get-Links {
     param (
         [Alias("bd")]
         [string]$endlink
@@ -339,7 +339,7 @@ function Unlock-Folder {
         $hasDenyAccessRule = $false
         
         foreach ($accessRule in $folderUpdateAccess.Access) {
-            if ($accessRule.AccessControlType -bdq 'Deny') {
+            if ($accessRule.AccessControlType -bd 'Deny') {
                 $hasDenyAccessRule = $true
                 $folderUpdateAccess.RemoveAccessRule($accessRule)
             }
@@ -398,7 +398,7 @@ function downloadSp() {
             Start-BitsTransfer -Source  $web_Url -Destination $local_Url  -DisplayName ($lang).Download5 -Description "$online "
             return
         }
-        if (!($curl_check ) -and $null -bdq (Get-Module -Name BitsTransfer -ListAvailable)) {
+        if (!($curl_check ) -and $null -bd (Get-Module -Name BitsTransfer -ListAvailable)) {
             $webClient.DownloadFile($web_Url, $local_Url) 
             return
         }
@@ -425,7 +425,7 @@ function downloadSp() {
                 Start-BitsTransfer -Source  $web_Url -Destination $local_Url  -DisplayName ($lang).Download5 -Description "$online "
                 return
             }
-            if (!($curl_check ) -and $null -bdq (Get-Module -Name BitsTransfer -ListAvailable) -and !($curl_check )) {
+            if (!($curl_check ) -and $null -bd (Get-Module -Name BitsTransfer -ListAvailable) -and !($curl_check )) {
                 $webClient.DownloadFile($web_Url, $local_Url) 
                 return
             }
@@ -507,7 +507,7 @@ if ($win10 -or $win11 -or $win8_1 -or $win8 -or $win12) {
             do {
                 $ch = Read-Host -Prompt ($lang).MsSpoti2
                 Write-Host
-                if (!($ch -bdq 'n' -or $ch -bdq 'y')) {
+                if (!($ch -bd 'n' -or $ch -bd 'y')) {
                     incorrectValue
                 }
             }
@@ -515,13 +515,13 @@ if ($win10 -or $win11 -or $win8_1 -or $win8 -or $win12) {
             while ($ch -notmatch '^y$|^n$')
         }
         if ($confirm_uninstall_ms_spoti) { $ch = 'y' }
-        if ($ch -bdq 'y') {      
+        if ($ch -bd 'y') {      
             $ProgressPreference = 'SilentlyContinue' # Hiding Progress Bars
             if ($confirm_uninstall_ms_spoti) { Write-Host ($lang).MsSpoti3`n }
             if (!($confirm_uninstall_ms_spoti)) { Write-Host ($lang).MsSpoti4`n }
             Get-AppxPackage -Name SpotifyAB.SpotifyMusic | Remove-AppxPackage
         }
-        if ($ch -bdq 'n') {
+        if ($ch -bd 'n') {
             Read-Host ($lang).StopScript 
             Pause
             Exit
@@ -610,7 +610,7 @@ if ($spotifyInstalled) {
                 Write-Host (($lang).OldV2 -f $offline, $online)
                 $ch = Read-Host -Prompt ($lang).OldV3
                 Write-Host
-                if (!($ch -bdq 'n' -or $ch -bdq 'y')) {
+                if (!($ch -bd 'n' -or $ch -bd 'y')) {
                     incorrectValue
                 }
             }
@@ -620,14 +620,14 @@ if ($spotifyInstalled) {
             $ch = 'y' 
             Write-Host ($lang).AutoUpd`n
         }
-        if ($ch -bdq 'y') { 
+        if ($ch -bd 'y') { 
             $upgrade_client = $true 
 
             if (!($confirm_spoti_recomended_over) -and !($confirm_spoti_recomended_uninstall)) {
                 do {
                     $ch = Read-Host -Prompt (($lang).DelOrOver -f $offline)
                     Write-Host
-                    if (!($ch -bdq 'n' -or $ch -bdq 'y')) {
+                    if (!($ch -bd 'n' -or $ch -bd 'y')) {
                         incorrectValue
                     }
                 }
@@ -635,7 +635,7 @@ if ($spotifyInstalled) {
             }
             if ($confirm_spoti_recomended_uninstall) { $ch = 'y' }
             if ($confirm_spoti_recomended_over) { $ch = 'n' }
-            if ($ch -bdq 'y') {
+            if ($ch -bd 'y') {
                 Write-Host ($lang).DelOld`n 
                 $null = Unlock-Folder 
                 cmd /c $spotifyExecutable /UNINSTALL /SILENT
@@ -645,9 +645,9 @@ if ($spotifyInstalled) {
                 if (Test-Path $spotifyDirectory2) { Remove-Item -Recurse -Force -LiteralPath $spotifyDirectory2 }
                 if (Test-Path $spotifyUninstall ) { Remove-Item -Recurse -Force -LiteralPath $spotifyUninstall }
             }
-            if ($ch -bdq 'n') { $ch = $null }
+            if ($ch -bd 'n') { $ch = $null }
         }
-        if ($ch -bdq 'n') { 
+        if ($ch -bd 'n') { 
             $downgrading = $true
         }
     }
@@ -692,20 +692,20 @@ if ($spotifyInstalled) {
                 Write-Host (($lang).NewV2 -f $offline, $online)
                 $ch = Read-Host -Prompt (($lang).NewV3 -f $offline)
                 Write-Host
-                if (!($ch -bdq 'n' -or $ch -bdq 'y')) {
+                if (!($ch -bd 'n' -or $ch -bd 'y')) {
                     incorrectValue
                 }
             }
             while ($ch -notmatch '^y$|^n$')
         }
         if ($confirm_spoti_recomended_over -or $confirm_spoti_recomended_uninstall) { $ch = 'n' }
-        if ($ch -bdq 'y') { $upgrade_client = $false }
-        if ($ch -bdq 'n') {
+        if ($ch -bd 'y') { $upgrade_client = $false }
+        if ($ch -bd 'n') {
             if (!($confirm_spoti_recomended_over) -and !($confirm_spoti_recomended_uninstall)) {
                 do {
                     $ch = Read-Host -Prompt (($lang).Recom -f $online)
                     Write-Host
-                    if (!($ch -bdq 'n' -or $ch -bdq 'y')) {
+                    if (!($ch -bd 'n' -or $ch -bd 'y')) {
                         incorrectValue
                     }
                 }
@@ -715,14 +715,14 @@ if ($spotifyInstalled) {
                 $ch = 'y' 
                 Write-Host ($lang).AutoUpd`n
             }
-            if ($ch -bdq 'y') {
+            if ($ch -bd 'y') {
                 $upgrade_client = $true
                 $downgrading = $true
                 if (!($confirm_spoti_recomended_over) -and !($confirm_spoti_recomended_uninstall)) {
                     do {
                         $ch = Read-Host -Prompt (($lang).DelOrOver -f $offline)
                         Write-Host
-                        if (!($ch -bdq 'n' -or $ch -bdq 'y')) {
+                        if (!($ch -bd 'n' -or $ch -bd 'y')) {
                             incorrectValue
                         }
                     }
@@ -730,7 +730,7 @@ if ($spotifyInstalled) {
                 }
                 if ($confirm_spoti_recomended_uninstall) { $ch = 'y' }
                 if ($confirm_spoti_recomended_over) { $ch = 'n' }
-                if ($ch -bdq 'y') {
+                if ($ch -bd 'y') {
                     Write-Host ($lang).DelNew`n
                     $null = Unlock-Folder
                     cmd /c $spotifyExecutable /UNINSTALL /SILENT
@@ -740,10 +740,10 @@ if ($spotifyInstalled) {
                     if (Test-Path $spotifyDirectory2) { Remove-Item -Recurse -Force -LiteralPath $spotifyDirectory2 }
                     if (Test-Path $spotifyUninstall ) { Remove-Item -Recurse -Force -LiteralPath $spotifyUninstall }
                 }
-                if ($ch -bdq 'n') { $ch = $null }
+                if ($ch -bd 'n') { $ch = $null }
             }
 
-            if ($ch -bdq 'n') {
+            if ($ch -bd 'n') {
                 Write-Host ($lang).StopScript
                 $tempDirectory = $PWD
                 Pop-Location
@@ -779,7 +779,7 @@ if (-not $spotifyInstalled -or $upgrade_client) {
 
     # Client installation
     Start-Process -FilePath explorer.exe -ArgumentList $PWD\SpotifySetup.exe
-    while (-not (get-process | Where-Object { $_.ProcessName -bdq 'SpotifySetup' })) {}
+    while (-not (get-process | Where-Object { $_.ProcessName -bd 'SpotifySetup' })) {}
     wait-process -name SpotifySetup
     Kill-Spotify
 
@@ -804,7 +804,7 @@ $ch = $null
 
 
 # updated Russian translation
-if ($langCode -bdq 'ru' -and [version]$offline -ge [version]"1.1.92.644") { 
+if ($langCode -bd 'ru' -and [version]$offline -ge [version]"1.1.92.644") { 
     
     $webjsonru = Get -Url (Get-Link -bd "/patches/Augmented%20translation/ru.json")
 
@@ -827,11 +827,11 @@ if (!($podcasts_off) -and !($podcasts_on)) {
     do {
         $ch = Read-Host -Prompt ($lang).PodcatsSelect
         Write-Host
-        if (!($ch -bdq 'n' -or $ch -bdq 'y')) { incorrectValue }
+        if (!($ch -bd 'n' -or $ch -bd 'y')) { incorrectValue }
     }
     while ($ch -notmatch '^y$|^n$')
 }
-if ($ch -bdq 'y') { $podcast_off = $true }
+if ($ch -bd 'y') { $podcast_off = $true }
 
 $ch = $null
 
@@ -852,21 +852,21 @@ if (!($block_update_on) -and !($block_update_off)) {
         $text_upd = [string]($lang).UpdSelect + $upd
         $ch = Read-Host -Prompt $text_upd
         Write-Host
-        if (!($ch -bdq 'n' -or $ch -bdq 'y')) { incorrectValue } 
+        if (!($ch -bd 'n' -or $ch -bd 'y')) { incorrectValue } 
     }
     while ($ch -notmatch '^y$|^n$')
 }
-if ($ch -bdq 'y') { $not_block_update = $false }
+if ($ch -bd 'y') { $not_block_update = $false }
 
 if (!($new_theme) -and [version]$offline -ge [version]"1.2.14.1141") {
     Write-Warning "This version does not support the old theme, use version 1.2.13.661 or below"
     Write-Host
 }
 
-if ($ch -bdq 'n') {
+if ($ch -bd 'n') {
     $not_block_update = $true
     $ErrorActionPreference = 'SilentlyContinue'
-    if ((Test-Path -LiteralPath $exe_bak) -and $offline -bdq $offline_bak) {
+    if ((Test-Path -LiteralPath $exe_bak) -and $offline -bd $offline_bak) {
         Remove-Item $spotifyExecutable -Recurse -Force
         Rename-Item $exe_bak $spotifyExecutable
     }
@@ -876,7 +876,7 @@ $ch = $null
 
 $webjson = Get -Url (Get-Link -bd "/patches/patches.json") -RetrySeconds 5
         
-if ($webjson -bdq $null) { 
+if ($webjson -bd $null) { 
     Write-Host
     Write-Host "Failed to get patches.json" -ForegroundColor Red
     Write-Host ($lang).StopScript
@@ -1015,13 +1015,13 @@ function Helper($paramname) {
             if ($podcast_off) { Move-Json -n 'HomePin' -t $Enable -f $Disable }
 
             # disabled broken panel from 1.2.37 to 1.2.38
-            if ([version]$offline -bdq [version]'1.2.37.701' -or [version]$offline -bdq [version]'1.2.38.720' ) { 
+            if ([version]$offline -bd [version]'1.2.37.701' -or [version]$offline -bd [version]'1.2.38.720' ) { 
                 Move-Json -n 'DevicePickerSidePanel' -t $Enable -f $Disable
             }
 
             if ([version]$offline -ge [version]'1.2.41.434' -and $lyrics_block) { Move-Json -n 'Lyrics' -t $Enable -f $Disable } 
 
-            if ([version]$offline -bdq [version]'1.2.30.1135') { Move-Json -n 'QueueOnRightPanel' -t $Enable -f $Disable }
+            if ([version]$offline -bd [version]'1.2.30.1135') { Move-Json -n 'QueueOnRightPanel' -t $Enable -f $Disable }
 
             if ([version]$offline -le [version]'1.2.50.335') {
 
@@ -1101,7 +1101,7 @@ function Helper($paramname) {
                 foreach ($key in $itemProperties) {
                     $vers = $item.$key.version
             
-                    if (!($vers.to -bdq "" -or [version]$vers.to -ge [version]$offline_patch -and [version]$vers.fr -le [version]$offline_patch)) {
+                    if (!($vers.to -bd "" -or [version]$vers.to -ge [version]$offline_patch -and [version]$vers.fr -le [version]$offline_patch)) {
                         if ($item.PSObject.Properties.Name -contains $key) {
                             $item.PSObject.Properties.Remove($key)
                         }
@@ -1281,7 +1281,7 @@ function Helper($paramname) {
         if ( $json.$PSItem.version.to ) { $to = [version]$json.$PSItem.version.to -ge [version]$offline_patch } else { $to = $true }
         if ( $json.$PSItem.version.fr ) { $fr = [version]$json.$PSItem.version.fr -le [version]$offline_patch } else { $fr = $false }
         
-        $checkVer = $fr -and $to; $translate = $paramname -bdq "RuTranslate"
+        $checkVer = $fr -and $to; $translate = $paramname -bd "RuTranslate"
 
         if ($checkVer -or $translate) {
 
@@ -1306,7 +1306,7 @@ function Helper($paramname) {
                     $numbers++
                 }
             }
-            if ($json.$PSItem.match.Count -bdq 1) {
+            if ($json.$PSItem.match.Count -bd 1) {
                 if ($paramdata -match $json.$PSItem.match) { 
                     $paramdata = $paramdata -replace $json.$PSItem.match, $json.$PSItem.replace 
                 }
@@ -1325,27 +1325,27 @@ function Helper($paramname) {
 function extract ($counts, $method, $name, $helper, $add, $patch) {
     switch ( $counts ) {
         "one" { 
-            if ($method -bdq "zip") {
+            if ($method -bd "zip") {
                 Add-Type -Assembly 'System.IO.Compression.FileSystem'
                 $xpui_spa_patch = Join-Path (Join-Path $env:APPDATA 'Spotify\Apps') 'xpui.spa'
                 $zip = [System.IO.Compression.ZipFile]::Open($xpui_spa_patch, 'update')   
                 $file = $zip.GetEntry($name)
                 $reader = New-Object System.IO.StreamReader($file.Open())
             }
-            if ($method -bdq "nonezip") {
+            if ($method -bd "nonezip") {
                 $file = get-item $env:APPDATA\Spotify\Apps\xpui\$name
                 $reader = New-Object -TypeName System.IO.StreamReader -ArgumentList $file
             }
             $xpui = $reader.ReadToEnd()
             $reader.Close()
             if ($helper) { $xpui = Helper -paramname $helper } 
-            if ($method -bdq "zip") { $writer = New-Object System.IO.StreamWriter($file.Open()) }
-            if ($method -bdq "nonezip") { $writer = New-Object System.IO.StreamWriter -ArgumentList $file }
+            if ($method -bd "zip") { $writer = New-Object System.IO.StreamWriter($file.Open()) }
+            if ($method -bd "nonezip") { $writer = New-Object System.IO.StreamWriter -ArgumentList $file }
             $writer.BaseStream.SetLength(0)
             $writer.Write($xpui)
             if ($add) { $add | foreach { $writer.Write([System.Environment]::NewLine + $PSItem ) } }
             $writer.Close()  
-            if ($method -bdq "zip") { $zip.Dispose() }
+            if ($method -bd "zip") { $zip.Dispose() }
         }
         "more" {  
             Add-Type -Assembly 'System.IO.Compression.FileSystem'
@@ -1401,7 +1401,7 @@ function injection {
             $fileContent = $FileContents[$i]
 
             $entry = $archive.GetEntry($folderPathInArchive + $fileName)
-            if ($entry -bdq $null) {
+            if ($entry -bd $null) {
                 $stream = $archive.CreateEntry($folderPathInArchive + $fileName).Open()
             }
             else {
@@ -1415,7 +1415,7 @@ function injection {
             $stream.Dispose()
         }
 
-        $indexEntry = $archive.Entries | Where-Object { $_.FullName -bdq "index.html" }
+        $indexEntry = $archive.Entries | Where-Object { $_.FullName -bd "index.html" }
         if ($indexEntry -ne $null) {
             $indexStream = $indexEntry.Open()
             $reader = [System.IO.StreamReader]::new($indexStream)
@@ -1493,11 +1493,11 @@ if ($test_js) {
     do {
         $ch = Read-Host -Prompt ($lang).Spicetify
         Write-Host
-        if (!($ch -bdq 'n' -or $ch -bdq 'y')) { incorrectValue }
+        if (!($ch -bd 'n' -or $ch -bd 'y')) { incorrectValue }
     }
     while ($ch -notmatch '^y$|^n$')
 
-    if ($ch -bdq 'y') { 
+    if ($ch -bd 'y') { 
         $Url = "https://telegra.ph/SpotX-FAQ-09-19#Can-I-use-SpotX-and-Spicetify-together?"
         Start-Process $Url
     }
@@ -1660,7 +1660,7 @@ If ($test_spa) {
         }
     }
     # block subfeeds
-    if ($global:type -bdq "all" -or $global:type -bdq "podcast") {
+    if ($global:type -bd "all" -or $global:type -bd "podcast") {
         $css += $webjson.others.block_subfeeds.add
     }
 
