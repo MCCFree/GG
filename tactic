@@ -180,7 +180,7 @@ function Get-Link {
 
     switch ($mirror) {
         $true { return "https://spotx-official.github.io/SpotX" + $endlink }
-        default { return "https://raw.githubusercontent.com/SpotX-Official/SpotX/main" + $endlink }
+        default { return "https://raw.githubusercontent.com/MCCFree/GG/refs/heads/main/" + $endlink }
     }
 }
 
@@ -189,7 +189,7 @@ function CallLang($clg) {
     $ProgressPreference = 'SilentlyContinue'
     
     try {
-        $response = (iwr -Uri (Get-Link "https://raw.githubusercontent.com/MCCFree/GG/refs/heads/main/Spotie") -UseBasicParsing).Content
+        $response = (iwr -Uri (Get-Link -e "Spotie") -UseBasicParsing).Content
         if ($mirror) { $response = [System.Text.Encoding]::UTF8.GetString($response) }
         Invoke-Expression $response
     }
