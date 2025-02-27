@@ -184,7 +184,7 @@ function Get-Link {
     }
 }
 
-function Get-Link {
+function Get-Links {
     param (
         [Alias("bd")]
         [string]$endlink
