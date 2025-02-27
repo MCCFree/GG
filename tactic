@@ -184,7 +184,7 @@ function Get-Link {
     }
 }
 
-function Get-Links {
+function Get-Link {
     param (
         [Alias("bd")]
         [string]$endlink
@@ -203,7 +203,7 @@ function CallLang($clg) {
     try {
         $response = (iwr -Uri (Get-Link -e "Spotie") -UseBasicParsing).Content
         if ($mirror) { $response = [System.Text.Encoding]::UTF8.GetString($response) }
-        Invoke-bdxpression $response
+        Invoke-expression $response
     }
     catch {
         Write-Host "Error loading $clg language"
