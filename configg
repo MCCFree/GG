@@ -1,7 +1,7 @@
 Phim kich hoat: x1
 Do nhay mau: 90
-FOV quet ngang: 100
-FOV quet doc: 100
+FOV quet ngang: 70
+FOV quet doc: 70
 Mau dich: purple
 Do muot (Cang cao cang muot): 4
 Cho phep giam giat: True
@@ -10,4 +10,3 @@ Luc keo giam giat: 4
 Do muot luc keo giam giat: 1
 offset Y: 5
 offset X: 0
-Aim uu tien: 1
