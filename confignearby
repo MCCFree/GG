@@ -1,0 +1,16 @@
+Keybind: x1
+Color sensitive factor: 100
+Width FOV: 70
+Height FOV: 80
+Enemy color: purple
+Smoothness: 7
+Smoothness dynamic speed: 0.1
+Smoothness dynamic require pixels: 15
+Scan speed: 0.001
+RCS Manual: True
+RCS Auto: False
+RCS Auto Speed: 4
+Y Offset: 4
+X Offset: 0
+Legit mode: False
+Legit mode Anti-Y (Pixel): 25
