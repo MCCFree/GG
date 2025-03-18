@@ -12,5 +12,6 @@ RCS Auto: False
 RCS Auto Speed: 4
 Y Offset: 4
 X Offset: 0
+Humanize aim position: True
 Legit mode: False
 Legit mode Anti-Y (Pixel): 25
