@@ -1,0 +1,12 @@
+{
+    "luon_bat": false,
+    "keybind": "0xA4",
+    "do_nhay_triggerbot": 40,
+    "do_nhay_mau": 70,
+    "thoi_gian_nghi": 0.01,
+    "fov_triggerbot_hitbox_detection": 20,
+    "fov_triggerbot": 5,
+    "burst_mode": true,
+    "burst_mode_avgbullets": 3,
+    "strafe_counter": true
+}
