@@ -1,13 +1,14 @@
 {
     "always_enabled": false,
     "keybind": "0xA4",
-    "trigger_speed": 40,
+    "trigger_speed": 1,
     "color_sensivity": 70,
-    "trigger_delay": 0.2,
-    "fov_triggerbot_basic": 5,
-    "fov_triggerbot": 20,
-    "burst_mode": true,
+    "trigger_delay": 0.01,
+    "fov_triggerbot_basic": 3,
+    "fov_triggerbot": 40,
+    "burst_mode": false,
     "burst_mode_avgbullets": 3,
     "strafe_counter": false,
-    "capture_interval": 0.001
+    "capture_interval": 0.0001,
+    "hide_console": false
 }
